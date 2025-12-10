@@ -1,58 +1,106 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuôi Em Bé</title>
-    <style>
-        body {
-            background-color: #ffeef5;
-            font-family: "Comic Sans MS", sans-serif;
-            color: #ff6f9f;
-            text-align: center;
-            padding: 40px;
-        }
-        .container {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            max-width: 480px;
-            margin: auto;
-            box-shadow: 0 0 15px rgba(255, 155, 180, 0.3);
-        }
-        button {
-            background-color: #ff8fb7;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-        button:hover {
-            background-color: #ff7aa9;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuôi Em Bé</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica", "Arial", sans-serif;
+      background-color: #ffeef5; /* pastel hồng */
+      color: #4a3b47;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #ff8fb1;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #ffffffcc;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 14px 22px;
+      border: none;
+      border-radius: 50px;
+      background: #ffb6d9;
+      color: #ffffff;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #ff9dc9;
+    }
+
+    .counter {
+      font-size: 30px;
+      font-weight: bold;
+      color: #ff6fa5;
+      margin: 10px 0;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Nuôi Em Bé ♡</h1>
+    <p>Chồng ơi, đây là trang nuôi em bé phiên bản riêng của hai đứa mình nè. Em làm để chồng dòm cho vui á.</p>
 
-    <div class="container">
-        <h1>💗 Nuôi Em Bé 💗</h1>
-        <p>Chồng ơi, đây là chỗ để chồng nuôi em bé nè hihi 🍼💞</p>
-
-        <p>Hôm nay chồng thương em bé nhiều hong? Bấm nút bên dưới để nuôi em thêm xíu nhaaaa 😳💗</p>
-
-        <button onclick="love()">Nuôi em bé 💞</button>
-
-        <p id="msg" style="margin-top:20px; font-size:20px;"></p>
+    <div class="card">
+      <p>Chồng thương em bé nhiêu nè?</p>
+      <div id="loveCount" class="counter">0</div>
+      <button onclick="increaseLove()">Chồng bấm để cho em biết ♡</button>
     </div>
 
-    <script>
-        function love() {
-            document.getElementById("msg").innerHTML = 
-                "Em bé cảm ơnnn ~ chồng dễ thương quá trời luôn áaaa 😳💗";
-        }
-    </script>
+    <div class="card">
+      <p>Ghi chú nhỏ của em bé cho chồng:</p>
+      <textarea id="note" style="width:100%; height:120px; border-radius:12px; padding:10px; border:1px solid #ffd0e5; resize:none; font-size:16px;"></textarea>
+      <br><br>
+      <button onclick="saveNote()">Lưu lại cho chồng ♡</button>
+    </div>
+  </div>
 
+  <script>
+    let love = 0;
+
+    function increaseLove() {
+      love++;
+      document.getElementById("loveCount").innerText = love;
+    }
+
+    function saveNote() {
+      const text = document.getElementById("note").value;
+      localStorage.setItem("noteForChong", text);
+      alert("Em lưu cho chồng rồi nè ♡");
+    }
+
+    // Load lại ghi chú khi mở web
+    window.onload = function () {
+      const saved = localStorage.getItem("noteForChong");
+      if (saved) document.getElementById("note").value = saved;
+    }
+  </script>
 </body>
 </html>
