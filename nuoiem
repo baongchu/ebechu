@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuôi Em Bé</title>
+    <style>
+        body {
+            background-color: #ffeef5;
+            font-family: "Comic Sans MS", sans-serif;
+            color: #ff6f9f;
+            text-align: center;
+            padding: 40px;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            max-width: 480px;
+            margin: auto;
+            box-shadow: 0 0 15px rgba(255, 155, 180, 0.3);
+        }
+        button {
+            background-color: #ff8fb7;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #ff7aa9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>💗 Nuôi Em Bé 💗</h1>
+        <p>Chồng ơi, đây là chỗ để chồng nuôi em bé nè hihi 🍼💞</p>
+
+        <p>Hôm nay chồng thương em bé nhiều hong? Bấm nút bên dưới để nuôi em thêm xíu nhaaaa 😳💗</p>
+
+        <button onclick="love()">Nuôi em bé 💞</button>
+
+        <p id="msg" style="margin-top:20px; font-size:20px;"></p>
+    </div>
+
+    <script>
+        function love() {
+            document.getElementById("msg").innerHTML = 
+                "Em bé cảm ơnnn ~ chồng dễ thương quá trời luôn áaaa 😳💗";
+        }
+    </script>
+
+</body>
+</html>
